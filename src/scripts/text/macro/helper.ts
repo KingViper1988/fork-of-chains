@@ -1,13 +1,12 @@
 // @ts-nocheck
 
 /*
-  <<bantertext banter>>: display banter text
+  <<bantertext banter>>: hiển thị đoạn đối thoại ngẫu nhiên
 */
 
 Macro.add('missingunitquest', { handler() {
   this.output.append(html`
-    ${setup.DOM.Text.danger('The unit required to complete this quest no longer exists.')}
-    This quest is no longer able to be completed. You should remove this quest.
+    ${setup.DOM.Text.danger('Đơn vị cần thiết để hoàn thành nhiệm vụ này không còn tồn tại.')}
+    Nhiệm vụ này không thể hoàn thành được nữa. Bạn nên xóa nhiệm vụ này đi.
   `)
 } });
-
