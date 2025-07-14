@@ -1,75 +1,75 @@
 // @ts-nocheck
 
 /*
-  Text macros for units. For every <<uxxx unit>> there is a <<uxxxall unit>> version that gives equipment desc.
-  For example, <<utorso unit>> becomes <<utorsoall unit>>: muscular body protected by chainmail
+  Các macro văn bản cho các đơn vị. Với mỗi macro <<uxxx unit>>, sẽ có một phiên bản <<uxxxall unit>> cung cấp mô tả trang bị.
+  Ví dụ, <<utorso unit>> trở thành <<utorsoall unit>>: cơ thể vạm vỡ được bảo vệ bởi áo giáp lưới
 
-  <<utorso unit>>: muscular body
-  <<uback unit>>: muscular back
-  <<ubelly unit>>: six packs
-  <<uwaist unit>>: narrow waist
-  <<uhead unit>>: head
-  <<uface unit>>: handsome face
-  <<umouth unit>>: draconic mouth
-  <<ueyes unit>>: cat-like eyes
-  <<uears unit>>: elven ears
-  <<uhorns unit>>: elven ears
-  <<ubreast unit>>: manly chest
-  <<ucleavage unit>>: manly chest
-  <<uneck unit>>: thick neck
-  <<uwings unit>>: draconic wings
-  <<uarms unit>>: muscular arms
-  <<ulegs unit>>: slim legs
-  <<ufeet unit>>: digitigrade feet
-  <<utail unit>>: draconic tail
-  <<udick unit>>: large dick
-  <<udickorstrap unit>>: large dick or strap-on
-  <<uballs unit>>: large balls
-  <<uvagina unit>>: gaping vagina
-  <<uanus unit>>: gaping anus
-  <<uhole unit>>: gaping anus
-  <<unipple unit>>: nipple
-  <<uhands unit>>: hands
-  <<ugenital unit>>: large dick and balls
-  <<utongue unit>>: elongated tongue
-  <<utailtip unit>>: sharp tip
-  <<udickhead unit>>: head
-  <<uteeth unit>>: teeth / fangs
+  <<utorso unit>>: cơ thể vạm vỡ
+  <<uback unit>>: lưng vạm vỡ
+  <<ubelly unit>>: bụng sáu múi
+  <<uwaist unit>>: eo thon
+  <<uhead unit>>: đầu
+  <<uface unit>>: khuôn mặt điển trai
+  <<umouth unit>>: miệng rồng
+  <<ueyes unit>>: đôi mắt giống mèo
+  <<uears unit>>: tai elf
+  <<uhorns unit>>: sừng
+  <<ubreast unit>>: ngực nam tính
+  <<ucleavage unit>>: khe ngực nam tính
+  <<uneck unit>>: cổ dày
+  <<uwings unit>>: đôi cánh rồng
+  <<uarms unit>>: cánh tay cơ bắp
+  <<ulegs unit>>: đôi chân thon
+  <<ufeet unit>>: bàn chân đi bằng ngón
+  <<utail unit>>: đuôi rồng
+  <<udick unit>>: dương vật lớn
+  <<udickorstrap unit>>: dương vật lớn hoặc dương vật giả
+  <<uballs unit>>: tinh hoàn lớn
+  <<uvagina unit>>: âm đạo rộng ngoác
+  <<uanus unit>>: hậu môn rộng ngoác
+  <<uhole unit>>: lỗ hậu môn rộng ngoác
+  <<unipple unit>>: núm vú
+  <<uhands unit>>: bàn tay
+  <<ugenital unit>>: dương vật và tinh hoàn lớn
+  <<utongue unit>>: lưỡi dài
+  <<utailtip unit>>: chóp đuôi nhọn
+  <<udickhead unit>>: đầu
+  <<uteeth unit>>: răng / nanh
 
-  OTHERS:
-  <<uequipment unit>>: valuable slutty bondage armor
-  <<ubantertraining unit>>: "John cannot help but craves your attention."
-  <<uadjphys unit>>: muscular   (random physical adjective)
-  <<uadj unit>>: smart     (random adjective)
-  <<uadjgood unit>>: smart     (random adjective)
-  <<uadjbad unit>>: dumb (random adjective)
-  <<uadv unit>>: smartly   (random adverb)
+  KHÁC:
+  <<uequipment unit>>: bộ giáp nô lệ trói buộc gợi dục quý giá
+  <<ubantertraining unit>>: "John không thể không khao khát sự chú ý của bạn."
+  <<uadjphys unit>>: vạm vỡ (tính từ thể chất ngẫu nhiên)
+  <<uadj unit>>: thông minh (tính từ ngẫu nhiên)
+  <<uadjgood unit>>: thông minh (tính từ tốt ngẫu nhiên)
+  <<uadjbad unit>>: ngu ngốc (tính từ xấu ngẫu nhiên)
+  <<uadv unit>>: một cách thông minh (trạng từ ngẫu nhiên)
   <<urace unit>>: neko
   <<uhomeland unit>>: neko
-  <<uweapon unit>>: sword  (unit's weapon. Always melee. unit always have a weapon)
-  <<uaweapon unit>>: a sword
+  <<uweapon unit>>: kiếm (vũ khí của đơn vị. Luôn là cận chiến. đơn vị luôn có vũ khí)
+  <<uaweapon unit>>: một thanh kiếm
 
-  <<upraisenoun unit>>: bravery (or handsomeness, etc)
-  <<uinsultnoun unit>>: bravery (or handsomeness, etc)
-  <<uhobbyverb unit>>: reminiscing about his past
+  <<upraisenoun unit>>: lòng dũng cảm (hoặc vẻ điển trai, v.v.)
+  <<uinsultnoun unit>>: lòng dũng cảm (hoặc vẻ điển trai, v.v.)
+  <<uhobbyverb unit>>: hồi tưởng về quá khứ của anh ấy
   
-  <<ustriptorso unit>>: "John took off his shirt"
-  <<ustriplegs unit>>: "John pull down his pants"
-  <<ustripanus unit>>: "John took out his buttplug"
-  <<ustripgenital unit>>: "John took out his buttplug"
-  <<ustripmouth unit>>: "John took of his gag"
-  <<ustripvagina unit>>: "Alice took out her dildo"
-  <<ustripdick unit>>: "You unlocks John's chastity cage"
-  <<ustripnipple unit>>: "John took of his nipple clamps"
-  <<uslaverstripall unit>>: "Your slavers stripped unit naked out of their bondage gear"
+  <<ustriptorso unit>>: "John cởi áo sơ mi"
+  <<ustriplegs unit>>: "John kéo quần xuống"
+  <<ustripanus unit>>: "John rút nút bịt hậu môn ra"
+  <<ustripgenital unit>>: "John rút nút bịt hậu môn ra"
+  <<ustripmouth unit>>: "John tháo bịt miệng ra"
+  <<ustripvagina unit>>: "Alice rút dương vật giả ra"
+  <<ustripdick unit>>: "Bạn mở khóa lồng trinh tiết của John"
+  <<ustripnipple unit>>: "John tháo kẹp núm vú ra"
+  <<uslaverstripall unit>>: "Chủ nô của bạn lột trần đơn vị khỏi bộ đồ trói buộc của họ"
 
-  <<upunishreason unit>>: "unit failed at their job"
-  <<uneedrescue unit>>: "Hearing the news, you sigh audibly while ordering your rescuer Bob to start working"
-  <<urescuenow unit>>: "Hearing the news, you sigh as you immediately get to work locating the slaver before worse come to pass"
+  <<upunishreason unit>>: "đơn vị đã thất bại trong công việc của họ"
+  <<uneedrescue unit>>: "Nghe tin, bạn thở dài rõ rệt trong khi ra lệnh cho người cứu hộ Bob bắt đầu làm việc"
+  <<urescuenow unit>>: "Nghe tin, bạn thở dài khi ngay lập tức bắt tay vào việc tìm kiếm chủ nô trước khi điều tồi tệ hơn xảy ra"
 
-  <<ustripshirtand unit>> "strips his shirt and"
-  <<ustrippantsand unit>> "strips his pants and"
-  <<ustripequipmentand unit>> "strips his armor and"
+  <<ustripshirtand unit>> "cởi áo sơ mi và"
+  <<ustrippantsand unit>> "cởi quần và"
+  <<ustripequipmentand unit>> "cởi áo giáp và"
 */
 
 import { Args_OneActor } from "../../macro/_meta"
@@ -95,9 +95,8 @@ function internalOutputUnitTarget(output, func, unit_raw, target_raw) {
   let raw = func({ unit: unit, target: target })
   output.append(setup.DOM.Util.twine(raw))
 }
-
-// each of this will be generated into two macros, one for naked desc and one for with equipment
-// for example, "torso" becomes two macros: <<utorso _unit>> for naked and <<utorsoall _unit>> for clothed
+// mỗi macro này sẽ được tạo thành hai macro, một cho mô tả khi không mặc đồ và một cho khi có trang bị
+// ví dụ, "torso" trở thành hai macro: <<utorso _unit>> cho khi không mặc đồ và <<utorsoall _unit>> cho khi có mặc đồ
 const candidates = [
   'torso',
   'back',
@@ -147,7 +146,7 @@ const candidates = [
   'cum',
   'cleavage',
 
-  /* Furnitures */
+  /* Đồ nội thất */
   'slaverbed',
   'slavebed',
   'foodtray',
@@ -192,19 +191,19 @@ for (let i = 0; i < candidates.length; ++i) {
     });
 
     setup.MACROS_METADATA[`u${candidate}`] = {
-      info: `Describes the unit ${candidate}`,
+      info: `Mô tả ${candidate} của đơn vị`,
       args: Args_OneActor
     }
     setup.MACROS_METADATA[`u${candidate}all`] = {
-      info: `Describes the unit ${candidate}, including clothed status`,
+      info: `Mô tả ${candidate} của đơn vị, bao gồm cả tình trạng mặc đồ`,
       args: Args_OneActor
     }
     setup.MACROS_METADATA[`ua${candidate}`] = {
-      info: `Describes the unit ${candidate}, and prepend an article`,
+      info: `Mô tả ${candidate} của đơn vị, và thêm mạo từ vào trước`,
       args: Args_OneActor
     }
     setup.MACROS_METADATA[`ua${candidate}all`] = {
-      info: `Describes the unit ${candidate}, including clothed status, and prepend an article`,
+      info: `Mô tả ${candidate} của đơn vị, bao gồm cả tình trạng mặc đồ, và thêm mạo từ vào trước`,
       args: Args_OneActor
     }
   }(candidates[i]));
