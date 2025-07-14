@@ -3,7 +3,7 @@
 import { BANTER_TOPIC } from "../raw/banter/topic"
 import { BANTER_TRAINING_MINDBREAK, BANTER_TRAINING_NONE, BANTER_TRAINING_OBJECT, BANTER_TRAINING_VERB, BANTER_VERB_SLAVER_FRIEND, BANTER_VERB_SLAVER_LOVER, BANTER_VERB_SLAVER_RIVAL, BANTER_VERB_SLAVE_ABUSE, BANTER_VERB_SLAVE_CARE } from "../raw/banter/verb"
 
-// get random from a text specs: [{initiator: [], target: [], verbs: []}]
+// lấy ngẫu nhiên từ một đặc tả văn bản: [{initiator: [], target: [], verbs: []}]
 setup.Text.Banter._getRandom = function(specs, initiator, target) {
   let eligibles = []
   for (let i = 0; i < specs.length; ++i) {
@@ -31,7 +31,7 @@ setup.Text.Banter._getRandom = function(specs, initiator, target) {
     if (!ok) continue
     eligibles.push([spec.verbs, spec.verbs.length])
   }
-  if (!eligibles.length) throw new Error(`??? eligibles missing???`)
+  if (!eligibles.length) throw new Error(`??? thiếu các mục đủ điều kiện???`)
   setup.rng.normalizeChanceArray(eligibles)
   let chosen = setup.rng.sampleArray(eligibles)
   return setup.rng.choice(chosen)
@@ -56,7 +56,7 @@ setup.Text.Banter._getAdverb = function(unit, is_care, is_abuse) {
   } else {
     candidates = candidates.concat(adverbs)
   }
-  candidates = [].concat(unit.getSpeech().getAdverbs()) // TODO: this replaces the value from above, why?
+  candidates = [].concat(unit.getSpeech().getAdverbs()) // TODO: cái này thay thế giá trị từ trên, tại sao?
   let traits = unit.getAllTraitsWithTag('per')
   for (let i = 0; i < traits.length; ++i) {
     let text = traits[i].text()
@@ -81,21 +81,21 @@ setup.Text.Banter._generateSlaver = function(initiator, target, amt) {
   } else if (initiator.getLover() == target) {
     verb_candidate = BANTER_VERB_SLAVER_LOVER
     connector = setup.rng.choice([
-      `as a reward for`,
-      `for`,
-      `rewarding`,
-      `after appreciating`,
-      `after a show of`,
+      `như một phần thưởng cho`,
+      `cho`,
+      `thưởng cho`,
+      `sau khi đánh giá cao`,
+      `sau một màn trình diễn của`,
 
-      `appreciating`,
-      `as an appreciation for`,
-      `to show appreciation for`,
-      `while fantasizing about`,
-      `all while thinking about`,
+      `đánh giá cao`,
+      `như một sự đánh giá cao cho`,
+      `để thể hiện sự đánh giá cao cho`,
+      `trong khi tưởng tượng về`,
+      `trong khi suy nghĩ về`,
     ])
   } else {
     verb_candidate = BANTER_VERB_SLAVER_FRIEND
-    connector = setup.rng.choice(['about', 'on the topic of', 'regarding', 'concerning', 'on the subject of'])
+    connector = setup.rng.choice(['về', 'về chủ đề', 'liên quan đến', 'về vấn đề', 'về chủ đề'])
   }
   let verb = setup.Text.Banter._getRandom(verb_candidate, initiator, target)
 
@@ -128,9 +128,9 @@ setup.Text.Banter._generateSlave = function(initiator, target, amt) {
 }
 
 setup.Text.Banter.generate = function(initiator, target, amt) {
-  // generate a text banter from initiator to target with the given amt.
+  // tạo một đoạn đối thoại văn bản từ người khởi xướng đến mục tiêu với số lượng nhất định.
 
-  if (!initiator.isSlaver()) throw new Error(`Banter initiator must be a slaver`)
+  if (!initiator.isSlaver()) throw new Error(`Người khởi xướng đối thoại phải là một chủ nô`)
 
   let raw_text
   if (target.isSlave()) {
@@ -143,7 +143,7 @@ setup.Text.Banter.generate = function(initiator, target, amt) {
 }
 
 setup.Text.Banter.slaveTrainingText = function(unit) {
-  // generates a random sentence from the unit's main training
+  // tạo một câu ngẫu nhiên từ khóa huấn luyện chính của đơn vị
   let base = ''
   if (unit.isMindbroken()) {
     base = setup.rng.choice(BANTER_TRAINING_MINDBREAK)
