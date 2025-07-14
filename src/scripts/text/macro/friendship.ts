@@ -1,38 +1,38 @@
 // @ts-nocheck
 
 /*
-  Friendship macros:
+  Các macro về tình bạn:
 
-  <<tfriendtitle friendshipamt>>: rival, friend, etc based on the amt
-  <<tfriendslave friendshipamt>>: fear, is devoted to, etc based on the amt
+  <<tfriendtitle friendshipamt>>: đối thủ, bạn bè, v.v. dựa trên số điểm
+  <<tfriendslave friendshipamt>>: sợ hãi, tận tụy với, v.v. dựa trên số điểm
 */
 
 export function getFriendTitle(amt) {
-  if (amt == -1000) return 'archrival'
-  if (amt <= -900) return 'big rival'
-  if (amt <= -500) return 'rival'
-  if (amt <= -300) return 'competitor'
-  if (amt <= -150) return 'minor rival'
-  if (amt < 150) return 'acquaintance'
-  if (amt < 300) return 'distant friend'
-  if (amt < 500) return 'friend'
-  if (amt < 900) return 'companion'
-  if (amt < 1000) return 'confidant'
-  return 'best friend'
+  if (amt == -1000) return 'kẻ thù không đội trời chung'
+  if (amt <= -900) return 'đối thủ lớn'
+  if (amt <= -500) return 'đối thủ'
+  if (amt <= -300) return 'đối thủ cạnh tranh'
+  if (amt <= -150) return 'đối thủ nhỏ'
+  if (amt < 150) return 'người quen'
+  if (amt < 300) return 'bạn bè xa'
+  if (amt < 500) return 'bạn bè'
+  if (amt < 900) return 'bạn đồng hành'
+  if (amt < 1000) return 'bạn tâm giao'
+  return 'bạn thân nhất'
 }
 
 export function getFriendSlaveTitle(amt) {
-  if (amt == -1000) return 'is terrified by'
-  if (amt <= -900) return 'is frightened by'
-  if (amt <= -500) return 'respects'
-  if (amt <= -300) return 'is scared by'
-  if (amt <= -150) return 'slightly respects'
-  if (amt < 150) return 'is indifferent to'
-  if (amt < 300) return 'slightly trusts'
-  if (amt < 500) return 'is loyal to'
-  if (amt < 900) return 'is devoted to'
-  if (amt < 1000) return 'is bonded to'
-  return 'is fully bonded to'
+  if (amt == -1000) return 'khiếp sợ'
+  if (amt <= -900) return 'sợ hãi'
+  if (amt <= -500) return 'kính trọng'
+  if (amt <= -300) return 'lo sợ'
+  if (amt <= -150) return 'hơi kính trọng'
+  if (amt < 150) return 'thờ ơ với'
+  if (amt < 300) return 'hơi tin tưởng'
+  if (amt < 500) return 'trung thành với'
+  if (amt < 900) return 'tận tụy với'
+  if (amt < 1000) return 'gắn bó với'
+  return 'hoàn toàn gắn bó với'
 }
 
 /**
@@ -42,15 +42,15 @@ export function getFriendSlaveTitle(amt) {
  */
 export function getFriend(unit1, unit2) {
   if (unit1.getLover() == unit2) {
-    return 'lover'
+    return 'người tình'
   }
   let friendship = State.variables.friendship.getFriendship(unit1, unit2)
   return getFriendTitle(friendship)
 }
 
-// get lover / sibling / friend / ''
+// lấy người tình / anh chị em / bạn bè / ''
 const getRel = (unit1, unit2) => {
-  if (unit1.getLover() == unit2) return 'lover'
+  if (unit1.getLover() == unit2) return 'người tình'
   let relation = State.variables.family.getRelation(unit2, unit1)
   if (relation) {
     return relation.rep()
@@ -62,14 +62,14 @@ const getRel = (unit1, unit2) => {
   }
 }
 
-// unit1 and <<utheirrel>> unit2. (can be empty)
+// unit1 và <<utheirrel>> unit2. (có thể trống)
 const getTheirRel = (unit1, unit2) => {
   let rel = getRel(unit1, unit2)
   if (!rel) return ''
   return `<<their "${unit1.key}">> ${rel}`
 }
 
-// <<namerelu unit1 unit2>> become unit1's brother unit2
+// <<unamerel unit1 unit2>> trở thành anh trai của unit1 là unit2
 const getNameRel = (unit1, unit2) => {
   let rel = getRel(unit1, unit2)
   if (!rel) return ''
@@ -103,4 +103,3 @@ Macro.add('utheirrel', { handler() {
 Macro.add('unamerel', { handler() {
   wikiOutput(this.output, getNameRel, ...this.args);
 } });
-
