@@ -7,8 +7,8 @@ setup.Text.Unit.background = function (unit) {
   let backgrounds = unit.getTraits().filter(trait => trait.getTags().includes('bg'))
   if (!backgrounds.length) {
     return setup.Text.replaceUnitMacros([
-      `a|Rep a|have no discernible background.`,
-      `a|Rep a|have no background that you know of.`,
+      `a|Rep a|have không có xuất thân rõ ràng.`,
+      `a|Rep a|have không có xuất thân nào mà bạn biết.`,
     ], { a: unit })
   }
   const race = unit.getRace()
@@ -21,269 +21,269 @@ setup.Text.Unit.background = function (unit) {
     let basetext = null
     let slavertext = null
     let slavetext = null
-    // before being a slaver, unit xxx
-    // The unit also took another vocation before being a slave: unit also
+    // trước khi trở thành chủ nô, đơn vị xxx
+    // Đơn vị này cũng đã có một nghề khác trước khi làm nô lệ: đơn vị này cũng
     if (bg == setup.trait.bg_farmer) {
-      basetext = `came from a rural background where a|they growed crops and vegetables\
-      as well as handle farm animals`
-      slavertext = `Since humans are animals after all, some of these skills will surely\
-      come in handy during a slaving career`
-      slavetext = `Now a|they must have learned how the animals must have felt under a|their care`
+      basetext = `xuất thân từ một vùng nông thôn nơi a|they trồng trọt rau màu\
+      cũng như chăn nuôi gia súc`
+      slavertext = `Vì con người xét cho cùng cũng là động vật, một vài kỹ năng này chắc chắn sẽ\
+      có ích trong sự nghiệp chủ nô`
+      slavetext = `Bây giờ a|they hẳn đã hiểu được cảm giác của những con vật dưới sự chăm sóc của a|their`
     } else if (bg == setup.trait.bg_noble) {
-      basetext = `used to lived in relative luxury and well-provided for.\
-      As a result, a|rep received better education than most as well as some martial training`
-      slavetext = `a|They should now use a|their better education to learn fast how to be a good slave`
+      basetext = `từng sống trong sự xa hoa tương đối và được chu cấp đầy đủ.\
+      Kết quả là, a|rep nhận được nền giáo dục tốt hơn hầu hết những người khác cũng như một số huấn luyện võ thuật`
+      slavetext = `Bây giờ a|They nên sử dụng nền giáo dục tốt hơn của a|their để nhanh chóng học cách trở thành một nô lệ tốt`
     } else if (bg == setup.trait.bg_slave) {
-      basetext = `had never known what it meant to be a free a|race`
-      slavertext = `Now that the tables have turned, a|they a|is looking forward to handling the whip`
-      slavetext = `And a|they will probably never learn it`
+      basetext = `chưa bao giờ biết đến ý nghĩa của việc là một a|race tự do`
+      slavertext = `Giờ đây tình thế đã đảo ngược, a|they a|is đang mong chờ được cầm roi`
+      slavetext = `Và a|they có lẽ sẽ không bao giờ học được điều đó`
     } else if (bg == setup.trait.bg_monk) {
-      basetext = `honed their body and spirit in isolation`
+      basetext = `rèn luyện thân thể và tinh thần trong sự cô độc`
       if (unit.isHasTrait('muscle_strong')) {
-        slavetext = `It is surely destiny that a|their sculpted body is now free for your perusal`
-        slavertext = `a|Rep a|is strong both mentally and physically, surely a boon for a slaving company such as this`
+        slavetext = `Chắc chắn là định mệnh đã cho cơ thể cường tráng của a|their giờ đây được bạn tự do xem xét`
+        slavertext = `a|Rep mạnh cả về tinh thần lẫn thể chất, chắc chắn là một lợi thế cho một đoàn nô lệ như thế này`
       } else {
-        slavetext = `Although looking at their a|body now you are unsure if a|they remember anything from a|their trainings`
-        slavertext = `Although looking at their a|body now you are unsure if a|they remember anything from a|their trainings`
+        slavetext = `Mặc dù nhìn vào cơ thể a|their bây giờ, bạn không chắc liệu a|they có còn nhớ bất cứ điều gì từ quá trình luyện tập của a|their không`
+        slavertext = `Mặc dù nhìn vào cơ thể a|their bây giờ, bạn không chắc liệu a|they có còn nhớ bất cứ điều gì từ quá trình luyện tập của a|their không`
       }
     } else if (bg == setup.trait.bg_mercenary) {
-      basetext = `a|was part of a mercenary band and travelled across the land in the pursuit of gold.\
-      Such background gives a|rep plenty of combat experience`
-      slavetext = `Perhaps a|rep would make an excellent fighting slave for your amusement`
+      basetext = `a|was là một phần của một nhóm lính đánh thuê và đi khắp nơi để theo đuổi vàng bạc.\
+      Xuất thân như vậy mang lại cho a|rep nhiều kinh nghiệm chiến đấu`
+      slavetext = `Có lẽ a|rep sẽ trở thành một nô lệ chiến đấu xuất sắc để bạn giải trí`
     } else if (bg == setup.trait.bg_pirate) {
-      basetext = `lived on the sea preying upon unsuspecting victims and merchant ships.\
-      a|Rep a|is no stranger to enslaving whatever people in the ships a|they used to raid`
-      slavetext = `How the table have turned now that a|rep is nothing but your slave`
+      basetext = `sống trên biển săn mồi những nạn nhân không ngờ và các tàu buôn.\
+      a|Rep không lạ gì việc bắt làm nô lệ bất cứ ai trên những con tàu a|they từng đột kích`
+      slavetext = `Tình thế đã đảo ngược thế nào khi giờ đây a|rep không là gì ngoài nô lệ của bạn`
     } else if (bg == setup.trait.bg_thief) {
       if (subrace == setup.trait.subrace_humankingdom) {
-        basetext = `made a|their living pickpocketing people across the City of Lucgate`
+        basetext = `kiếm sống bằng nghề móc túi người dân trên khắp Thành phố Lucgate`
       } else {
-        basetext = `made a|their living breaking into and stealing from people's homes across the nearby land`
+        basetext = `kiếm sống bằng cách đột nhập và trộm cắp từ nhà của người dân trên khắp vùng đất gần đó`
       }
-      slavertext = `a|Rep a|have an experienced nimble fingers which is surely useful in the slaving career`
-      slavetext = `But it seems karma has caught up to a|their crimes`
+      slavertext = `a|Rep có những ngón tay nhanh nhẹn đầy kinh nghiệm, chắc chắn hữu ích trong sự nghiệp buôn bán nô lệ`
+      slavetext = `Nhưng có vẻ như nghiệp chướng đã báo ứng cho tội ác của a|their`
     } else if (bg == setup.trait.bg_mystic) {
       let magics = unit.getTraits().filter(trait => trait.getTags().includes('magic'))
       if (!magics.length) {
-        basetext = `a|was a practitioner of general magic without specializing in any field`
+        basetext = `a|was một người thực hành ma thuật nói chung mà không chuyên về bất kỳ lĩnh vực nào`
       } else if (magics.length == 2) {
-        basetext = `a|was a genius magic practitioner gifted in multiple domains of magic`
+        basetext = `a|was một thiên tài thực hành ma thuật có năng khiếu trong nhiều lĩnh vực ma thuật`
       } else {
-        basetext = `a|was a magic practitioner specializing in the domain of ${magics[0].rep()}`
+        basetext = `a|was một người thực hành ma thuật chuyên về lĩnh vực ${magics[0].rep()}`
       }
-      slavertext = `This gives a|rep an affinity of the arcane, which is surely going to help a|their slaving career`
-      slavetext = `You have to be careful near the slave until properly trained`
+      slavertext = `Điều này mang lại cho a|rep một sự tương thích với bí thuật, điều này chắc chắn sẽ giúp ích cho sự nghiệp buôn bán nô lệ của a|their`
+      slavetext = `Bạn phải cẩn thận khi ở gần nô lệ này cho đến khi được huấn luyện đúng cách`
     } else if (bg == setup.trait.bg_apprentice) {
       let magics = unit.getTraits().filter(trait => trait.getTags().includes('magic'))
       if (!magics.length) {
-        basetext = `a|was a student trying to master general magic without specializing in any field`
+        basetext = `a|was một sinh viên đang cố gắng làm chủ ma thuật nói chung mà không chuyên về bất kỳ lĩnh vực nào`
       } else if (magics.length == 2) {
-        basetext = `a|was a gifted student of magic who is yet to fulfill a|their true potential`
+        basetext = `a|was một sinh viên ma thuật tài năng vẫn chưa phát huy hết tiềm năng thực sự của a|their`
       } else {
-        basetext = `a|was a student magician of ${magics[0].rep()}`
+        basetext = `a|was một pháp sư tập sự của ${magics[0].rep()}`
       }
-      slavertext = `This gives a|rep a stronger affinity to the arcane than others, which if mastered is sure to propel a|their slaving career`
-      slavetext = `Maybe you can resume a|their magic training once the slave is obedient`
+      slavertext = `Điều này mang lại cho a|rep một sự tương thích mạnh mẽ hơn với bí thuật so với những người khác, nếu được làm chủ chắc chắn sẽ thúc đẩy sự nghiệp buôn bán nô lệ của a|their`
+      slavetext = `Có thể bạn có thể tiếp tục việc huấn luyện ma thuật của a|their một khi nô lệ này đã ngoan ngoãn`
     } else if (bg == setup.trait.bg_hunter) {
       if ([
         setup.trait.race_human,
         setup.trait.race_wolfkin,
         setup.trait.race_catkin,
         setup.trait.race_elf].includes(race)) {
-        basetext = `lived from hunting the wild animals of the surrounding forests`
+        basetext = `sống bằng nghề săn bắn các loài động vật hoang dã trong các khu rừng xung quanh`
       } else if (race == setup.trait.race_greenskin || subrace == setup.trait.subrace_humandesert) {
-        basetext = `lived from hunting the scarce wild animals in the eastern deserts`
+        basetext = `sống bằng nghề săn bắn các loài động vật hoang dã khan hiếm ở các sa mạc phía đông`
       } else {
-        basetext = `lived from hunting exotic animals off the southern seas`
+        basetext = `sống bằng nghề săn bắn các loài động vật kỳ lạ ngoài khơi các vùng biển phía nam`
       }
-      slavertext = `a|Their skills hunting animals will surely come in handy now that a|they hunt the most dangerous animals of all`
-      slavetext = `But the hunter has become the hunted and now must live in cages in your company`
+      slavertext = `Kỹ năng săn bắn động vật của a|Their chắc chắn sẽ có ích bây giờ khi a|they săn những con vật nguy hiểm nhất`
+      slavetext = `Nhưng kẻ đi săn đã trở thành con mồi và giờ phải sống trong lồng trong đoàn của bạn`
     } else if (bg == setup.trait.bg_priest) {
-      basetext = `dedicated a|their body and soul for the greater beings`
-      slavertext = `a|They must have ultimately found a|themself disillusioned by the idea to do a 180 flip and become a slaver.\
-      A priest may not be your traditional choice for a slaver, but nobody can deny that a|rep heals better than most`
-      slavetext = `And now a|they a|is fated to dedicate a|their soul and especially body for a|their master`
+      basetext = `cống hiến thân thể và tâm hồn của a|their cho các đấng tối cao`
+      slavertext = `a|They hẳn đã cuối cùng thấy mình vỡ mộng với ý tưởng đó để quay ngoắt 180 độ và trở thành một chủ nô.\
+      Một linh mục có thể không phải là lựa chọn truyền thống của bạn cho một chủ nô, nhưng không ai có thể phủ nhận rằng a|rep chữa lành tốt hơn hầu hết`
+      slavetext = `Và bây giờ a|they được định mệnh để cống hiến tâm hồn và đặc biệt là cơ thể của a|their cho chủ nhân của a|their`
     } else if (bg == setup.trait.bg_whore) {
-      basetext = `followed the ancient tradition of selling a|their own body for profit`
+      basetext = `theo truyền thống cổ xưa là bán chính cơ thể của a|their để kiếm lời`
       if (unit.isHasTrait(setup.trait.per_lustful) || unit.isMasochistic()) {
         basetext = `${basetext}.\
-        While most would have been appalled by the idea, a|rep a|seem to have liked\
-        a|their previous occupation too much..`
-        slavetext = 'Perhaps this is what you call a natural born slut'
-        slavertext = 'Perhaps this sluttiness can come in handy for slaving career?'
+        Trong khi hầu hết sẽ kinh hoàng trước ý tưởng này, a|rep dường như đã thích\
+        nghề nghiệp trước đây của a|their quá nhiều..`
+        slavetext = 'Có lẽ đây là thứ bạn gọi là một con điếm bẩm sinh'
+        slavertext = 'Có lẽ sự dâm đãng này có thể hữu ích cho sự nghiệp chủ nô?'
       } else {
         slavertext = `${basetext}.\
-        a|Rep a|was more than happy to bury a|their past and start anew as a slaver`
-        slavetext = `You kinda hope a|they can continue to sell their bodies and earn you money, but you're not running a brothel unfortunately`
+        a|Rep đã rất vui khi chôn vùi quá khứ của a|their và bắt đầu lại với tư cách là một chủ nô`
+        slavetext = `Bạn có phần hy vọng a|they có thể tiếp tục bán thân và kiếm tiền cho bạn, nhưng không may là bạn không điều hành một nhà thổ`
       }
     } else if (bg == setup.trait.bg_courtesan) {
-      basetext = `entertained the wealthies of clients with a|their body`
+      basetext = `giải trí cho những khách hàng giàu có nhất bằng cơ thể của a|their`
       if (unit.isHasTrait(setup.trait.per_lustful) || unit.isMasochistic()) {
         basetext = `${basetext}.\
-        While most courtesans tend to fake their enjoyment,\
-        a|Rep a|seem to genuinely enjoy the degradation.`
-        slavetext = 'Perhaps this is what you call a natural born slut'
-        slavertext = 'Perhaps this sluttiness can come in handy for slaving career?'
+        Trong khi hầu hết các kỹ nữ có xu hướng giả vờ thích thú,\
+        a|Rep dường như thực sự tận hưởng sự suy đồi.`
+        slavetext = 'Có lẽ đây là thứ bạn gọi là một con điếm bẩm sinh'
+        slavertext = 'Có lẽ sự dâm đãng này có thể hữu ích cho sự nghiệp chủ nô?'
       } else {
         slavertext = `${basetext}.\
-        a|Rep will have to learn how to use a|their charm and body for the benefit of your company`
-        slavetext = `Perhaps this is a rare chance for you to make use of such a high-class whore`
+        a|Rep sẽ phải học cách sử dụng sự quyến rũ và cơ thể của a|their vì lợi ích của đoàn của bạn`
+        slavetext = `Có lẽ đây là một cơ hội hiếm có để bạn tận dụng một con điếm cao cấp như vậy`
       }
     } else if (bg == setup.trait.bg_laborer) {
-      basetext = `did whatever heavy labor available around where a|they lived, be it mining, quarrying, or just moving things around.\
-      The experience have made the ${job.getName().toLowerCase()} stronger than most people,\
-      which is always a good trait to have on ${setup.Article(job.getName().toLowerCase())}`
+      basetext = `làm bất cứ công việc nặng nhọc nào có sẵn xung quanh nơi a|they sống, có thể là khai thác mỏ, khai thác đá, hoặc chỉ di chuyển đồ vật.\
+      Kinh nghiệm đã làm cho ${job.getName().toLowerCase()} mạnh hơn hầu hết mọi người,\
+      đó luôn là một đặc điểm tốt để có ở ${setup.Article(job.getName().toLowerCase())}`
     } else if (bg == setup.trait.bg_merchant) {
-      basetext = `profited greatly off buying cheap and selling high`
-      slavertext = `a|Rep a|is a a|race you can trust with your money`
+      basetext = `kiếm được nhiều lợi nhuận từ việc mua rẻ bán đắt`
+      slavertext = `a|Rep là một a|race bạn có thể tin tưởng giao tiền bạc của mình`
     } else if (bg == setup.trait.bg_soldier) {
       if (race == setup.trait.race_lizardkin) {
-        basetext = `were part of a fearsome a|race army who ravaged the lands of other races for treasures`
-        slavertext = `Now a|they a|is a|their own master and finally can fight for a|themself and obtain a|their own hoard of treasure`
-        slavetext = `Having such a powerful a|race warrior as your slave is a truly incredible feat for yourself and your company`
+        basetext = `từng là một phần của một đội quân a|race đáng sợ, tàn phá vùng đất của các chủng tộc khác để tìm kho báu`
+        slavertext = `Bây giờ a|they là chủ nhân của chính a|their và cuối cùng có thể chiến đấu cho a|themself và giành được kho báu của riêng a|their`
+        slavetext = `Có một chiến binh a|race mạnh mẽ như vậy làm nô lệ của bạn là một kỳ công thực sự đáng kinh ngạc cho bản thân và đoàn của bạn`
       } else {
-        basetext = `fought as part of an army without really knowing why`
-        slavertext = `Now a|they a|is a|their own master and finally can fight for a|themself`
-        slavetext = `At least under your management a|their body and openings will be put to good use`
+        basetext = `chiến đấu như một phần của một đội quân mà không thực sự biết tại sao`
+        slavertext = `Bây giờ a|they là chủ nhân của chính a|their và cuối cùng có thể chiến đấu cho a|themself`
+        slavetext = `Ít nhất dưới sự quản lý của bạn, cơ thể và các lỗ của a|their sẽ được tận dụng tốt`
       }
     } else if (bg == setup.trait.bg_wildman) {
-      basetext = `lived wildly with little culture over at the ${setup.Text.Race.region(subrace)}`
-      slavetext = `a|They must have been an interesting animal to tame`
+      basetext = `sống hoang dã với ít văn hóa ở ${setup.Text.Race.region(subrace)}`
+      slavetext = `a|They hẳn là một con vật thú vị để thuần hóa`
     } else if (bg == setup.trait.bg_nomad) {
       if (race == setup.trait.race_greenskin) {
-        basetext = `lived in one of the orcish encampments and followed the army wherever it goes`
+        basetext = `sống trong một trong những trại của orc và theo quân đội đi bất cứ đâu`
       } else {
-        basetext = `lived from place to place in the ${setup.Text.Race.region(subrace)} without settling at any single place,\
-        which makes a|them particularly hardy`
+        basetext = `sống nay đây mai đó ở ${setup.Text.Race.region(subrace)} mà không định cư ở bất kỳ nơi nào,\
+        điều này khiến a|them đặc biệt cứng cỏi`
       }
     } else if (bg == setup.trait.bg_raider) {
-      basetext = `raided settlements near the ${setup.Text.Race.region(subrace)}, plundered the camps and raped their people`
-      slavetext = `Your company proves the better raiders as a|them raiding career is cut short\
-      to begin a|their new slave career`
-      slavertext = `a|Their experience almost perfectly matches the kind of experience\
-      your company is looking for, making a|them a great fit for the position of being a slaver`
+      basetext = `đột kích các khu định cư gần ${setup.Text.Race.region(subrace)}, cướp bóc các trại và hãm hiếp người dân của họ`
+      slavetext = `Đoàn của bạn chứng tỏ là những kẻ cướp bóc giỏi hơn khi sự nghiệp cướp bóc của a|them bị cắt ngắn\
+      để bắt đầu sự nghiệp nô lệ mới của a|their`
+      slavertext = `Kinh nghiệm của a|Their gần như hoàn toàn phù hợp với loại kinh nghiệm\
+      mà đoàn của bạn đang tìm kiếm, khiến a|them rất phù hợp với vị trí chủ nô`
     } else if (bg == setup.trait.bg_adventurer) {
       if (race == setup.trait.race_lizardkin) {
-        basetext = `left a|their a|race brethrens to go on an adventure for harem and hoard of treasure`
+        basetext = `rời bỏ anh em a|race của a|their để đi phiêu lưu tìm kiếm hậu cung và kho báu`
       } else {
-        basetext = `traveled the land looking for flesh and adventure`
+        basetext = `đi khắp nơi tìm kiếm xác thịt và phiêu lưu`
       }
-      slavetext = `You wonder if a|they think that being a slave is just a small part of the adventure`
-      slavertext = `That is, until a|they realize that being a slaver is a fast-track ticket to getting the flesh part`
+      slavetext = `Bạn tự hỏi liệu a|they có nghĩ rằng làm nô lệ chỉ là một phần nhỏ của cuộc phiêu lưu`
+      slavertext = `Đó là, cho đến khi a|they nhận ra rằng làm chủ nô là một con đường tắt để có được phần xác thịt`
     } else if (bg == setup.trait.bg_entertainer) {
-      basetext = `made a|their living from entertaining both highborns and lowborns alike`
+      basetext = `kiếm sống bằng việc giải trí cho cả giới quý tộc và thường dân`
       if (unit.isHasTrait(setup.trait.skill_entertain)) {
-        basetext = `${basetext}. a|Rep a|is particularly good at a|their job and is famous in certain circles`
+        basetext = `${basetext}. a|Rep đặc biệt giỏi trong công việc của a|their và nổi tiếng trong một số giới`
       }
-      slavetext = `The job description does not really change now that a|they a|is a slave, except maybe the extra hard labor the master may require`
-      slavertext = `The ability to entertain will surely come in handy in a|their new career as a slaver`
+      slavetext = `Mô tả công việc không thực sự thay đổi bây giờ khi a|they là một nô lệ, ngoại trừ có thể là lao động nặng nhọc thêm mà chủ nhân có thể yêu cầu`
+      slavertext = `Khả năng giải trí chắc chắn sẽ hữu ích trong sự nghiệp mới của a|their với tư cách là một chủ nô`
     } else if (bg == setup.trait.bg_mist) {
-      basetext = `a|was a frequent traveler between this world and the next`
-      slavetext = `Owning a slave with such mysterious origin gives you an odd and debauched feeling of power`
-      slavertext = `Having a slaver with such unnatural origin sometimes give you shivers during the night`
+      basetext = `a|was một du khách thường xuyên giữa thế giới này và thế giới tiếp theo`
+      slavetext = `Sở hữu một nô lệ có nguồn gốc bí ẩn như vậy mang lại cho bạn một cảm giác quyền lực kỳ lạ và trụy lạc`
+      slavertext = `Có một chủ nô có nguồn gốc khác thường như vậy đôi khi khiến bạn rùng mình trong đêm`
     } else if (bg == setup.trait.bg_knight) {
-      basetext = `a|was trained in the art of knighthood in protecting the weak and slaying the evil`
-      slavetext = `Having a a|race of such highly regarded job as a slave gives you a sense of satisfaction, and you can't wait to toy with a|rep some more later`
-      slavertext = `Being a slaver is perhaps the further away a knight could have strayed from a|their path`
+      basetext = `a|was được đào tạo về nghệ thuật hiệp sĩ để bảo vệ kẻ yếu và tiêu diệt cái ác`
+      slavetext = `Có một a|race của một công việc được đánh giá cao như vậy làm nô lệ mang lại cho bạn một cảm giác thỏa mãn, và bạn không thể chờ đợi để đùa giỡn với a|rep thêm nữa sau này`
+      slavertext = `Trở thành một chủ nô có lẽ là điều xa vời nhất mà một hiệp sĩ có thể đi chệch khỏi con đường của a|their`
     } else if (bg == setup.trait.bg_healer) {
-      basetext = `a|was a dedicated healer soothing the illnesses of a|their people`
-      slavertext = `Given the dangers your company face from day to day, having a slaver gifted in the arts of healing must be a blessing`
-      slavetext = `With proper training perhaps you can teach a|them to heal not only with spirit but also with a|their body`
+      basetext = `a|was một người chữa bệnh tận tụy làm dịu bệnh tật của người dân a|their`
+      slavertext = `Với những nguy hiểm mà đoàn của bạn phải đối mặt hàng ngày, có một chủ nô có năng khiếu về nghệ thuật chữa bệnh phải là một phước lành`
+      slavetext = `Với sự huấn luyện phù hợp, có lẽ bạn có thể dạy a|them chữa bệnh không chỉ bằng tinh thần mà còn bằng cơ thể của a|their`
     } else if (bg == setup.trait.bg_foodworker) {
-      basetext = `worked in the food industry feeding the stomachs of people`
-      slavertext = `You'll keep a|rep in mind if your company needs a chef one day`
+      basetext = `làm việc trong ngành công nghiệp thực phẩm nuôi sống dạ dày của mọi người`
+      slavertext = `Bạn sẽ ghi nhớ a|rep nếu một ngày nào đó đoàn của bạn cần một đầu bếp`
       if (unit.isHasTrait(setup.trait.dick_tiny)) {
-        slavetext = `a|Rep's change of job to a slaver means that they now need to also produce plenty of fresh "milk" a|themself`
+        slavetext = `Việc a|Rep thay đổi công việc thành chủ nô có nghĩa là bây giờ họ cũng cần phải tự sản xuất nhiều "sữa" tươi a|themself`
       } else if (unit.isHasTrait(setup.trait.breast_tiny)) {
-        slavetext = `a|Rep's change of job to a slaver means that they now need to also produce plenty of fresh "milk" a|themself`
+        slavetext = `Việc a|Rep thay đổi công việc thành chủ nô có nghĩa là bây giờ họ cũng cần phải tự sản xuất nhiều "sữa" tươi a|themself`
       }
     } else if (bg == setup.trait.bg_wiseman) {
-      basetext = `gave wise advises to a|their community`
+      basetext = `đưa ra những lời khuyên khôn ngoan cho cộng đồng của a|their`
     } else if (bg == setup.trait.bg_slaver) {
-      basetext = `were used to the sale and resale of other people`
-      slavertext = `a|They will be right at home in your company of slavers`
-      slavetext = `It is a strangely good feeling knowing that your company have bested another slaver and make a|them your slave`
+      basetext = `từng quen với việc mua bán và bán lại người khác`
+      slavertext = `a|They sẽ cảm thấy như ở nhà trong đoàn chủ nô của bạn`
+      slavetext = `Đó là một cảm giác tốt đẹp kỳ lạ khi biết rằng đoàn của bạn đã đánh bại một chủ nô khác và biến a|them thành nô lệ của bạn`
     } else if (bg == setup.trait.bg_engineer) {
-      basetext = `were widely known for a|their prowess in designing and building complex machineries and structures`
-      slavertext = `While a|they a|have unmatched knowledge in a|their field, a|rep a|have a severe aversion to magic`
-      slavetext = `Some skills makes the slave extremely valuable, especially on the right market`
+      basetext = `nổi tiếng rộng rãi về năng lực thiết kế và chế tạo các máy móc và công trình phức tạp`
+      slavertext = `Mặc dù a|they có kiến thức vô song trong lĩnh vực của a|their, a|rep lại có ác cảm nghiêm trọng với ma thuật`
+      slavetext = `Một số kỹ năng khiến nô lệ trở nên cực kỳ có giá trị, đặc biệt là trên thị trường phù hợp`
     } else if (bg == setup.trait.bg_unemployed) {
-      basetext = `did not have any work to do, and mostly lived out of the kindness of others`
-      slavertext = `Slaver as a first job must be rather exciting for the a|race`
-      slavetext = `You have to wonder if being a slave is considered a job`
+      basetext = `không có việc gì để làm, và chủ yếu sống bằng lòng tốt của người khác`
+      slavertext = `Chủ nô là công việc đầu tiên hẳn phải khá thú vị đối với a|race`
+      slavetext = `Bạn phải tự hỏi liệu làm nô lệ có được coi là một công việc không`
     } else if (bg == setup.trait.bg_artisan) {
-      basetext = `a|was a skilled artisan capable of making of various tools, wearables, and sex toys`
-      slavertext = `You occasionally see the a|race a|fashion a|their own\
-      sex toys and restraints to use on the slaves`
+      basetext = `a|was một nghệ nhân lành nghề có khả năng chế tạo các công cụ, đồ mặc và đồ chơi tình dục khác nhau`
+      slavertext = `Bạn thỉnh thoảng thấy a|race tự chế tạo đồ chơi tình dục và đồ kiềm chế\
+      để sử dụng trên các nô lệ`
     } else if (bg == setup.trait.bg_seaman) {
-      basetext = `sailed the seas and lived off her bounties`
-      slavetext = `Fortunately for you, a|they went for the wrong booty and ended up your slave`
-      slavertext = `Not to worry, you are sure that there will be opportunities for a|them to sail back to the sea as part a job in your company`
+      basetext = `đi biển và sống nhờ những sản vật của biển cả`
+      slavetext = `May mắn cho bạn, a|they đã đi nhầm 'chiến lợi phẩm' và cuối cùng trở thành nô lệ của bạn`
+      slavertext = `Đừng lo, bạn chắc chắn rằng sẽ có cơ hội để a|them ra khơi trở lại như một phần công việc trong đoàn của bạn`
     } else if (bg == setup.trait.bg_woodsman) {
-      basetext = `lived off the bounties of the woods, be it wood, fruits, or wildlife`
+      basetext = `sống nhờ những sản vật của rừng, có thể là gỗ, trái cây, hoặc động vật hoang dã`
     } else if (bg == setup.trait.bg_clerk) {
-      basetext = `shifted through numerous paperwork daily`
-      slavetext = `You wonder if being a slave to your will is better than being a slave to paperwork`
-      slavertext = `a|Rep a|is surely grateful for the change in occupation, a far livelier one than the one a|they a|is used to`
+      basetext = `xử lý vô số giấy tờ hàng ngày`
+      slavetext = `Bạn tự hỏi liệu làm nô lệ cho ý muốn của bạn có tốt hơn làm nô lệ cho giấy tờ không`
+      slavertext = `a|Rep chắc chắn biết ơn sự thay đổi nghề nghiệp, một nghề sống động hơn nhiều so với nghề a|they quen thuộc`
     } else if (bg == setup.trait.bg_scholar) {
-      basetext = `knowledgeable in a vast array of disciplines`
-      slavetext = `You can certainly make use of a knowledgeable slave for managing your company`
-      slavertext = `You can certainly count on a|them if you need to know anything`
+      basetext = `am hiểu về một loạt các lĩnh vực`
+      slavetext = `Bạn chắc chắn có thể tận dụng một nô lệ có kiến thức để quản lý đoàn của mình`
+      slavertext = `Bạn chắc chắn có thể tin tưởng vào a|them nếu bạn cần biết bất cứ điều gì`
     } else if (bg == setup.trait.bg_thug) {
-      basetext = `roughed up others for a living`
-      slavetext = `And now there is nothing left of the slave with the tables turned`
-      slavertext = `a|They will surely be natural are roughing up slaves`
+      basetext = `hành hung người khác để kiếm sống`
+      slavetext = `Và bây giờ không còn lại gì của nô lệ khi tình thế đã đảo ngược`
+      slavertext = `a|They chắc chắn sẽ rất tự nhiên khi hành hung các nô lệ`
     } else if (bg == setup.trait.bg_mythical) {
-      basetext = `worshipped as a mythical being akin to gods`
-      slavetext = `Such a wondrous slave in your possession makes you feel giddy inside`
-      slavertext = `You swear you occasionally see butterflies fluttering around the a|race`
+      basetext = `được tôn thờ như một sinh vật thần thoại giống như các vị thần`
+      slavetext = `Một nô lệ tuyệt vời như vậy trong tay bạn khiến bạn cảm thấy lâng lâng bên trong`
+      slavertext = `Bạn thề rằng bạn thỉnh thoảng thấy những con bướm bay lượn quanh a|race`
     } else if (bg == setup.trait.bg_royal) {
-      basetext = `a|was a member of the royal family ruling their land`
-      slavetext = `You have always dreamt fucking up the royalty, and now you can make the dream come true`
-      slavertext = `a|They currently a|view a|their current slaving job as a break from a|their monotonous life`
+      basetext = `a|was một thành viên của hoàng gia cai trị vùng đất của họ`
+      slavetext = `Bạn đã luôn mơ ước được chịch hoàng gia, và bây giờ bạn có thể biến giấc mơ thành hiện thực`
+      slavertext = `a|They hiện đang xem công việc chủ nô hiện tại của a|their như một kỳ nghỉ khỏi cuộc sống đơn điệu của a|their`
     } else if (bg == setup.trait.bg_boss) {
-      basetext = `a|was a highly influential member of the crime underworld`
-      slavetext = `No doubt a|their thugs are busy trying to rescue a|their boss right now`
-      slavertext = `And a|they probably still is -- Every now and then the a|race deeply unnerves you`
+      basetext = `a|was một thành viên có ảnh hưởng lớn trong thế giới ngầm tội phạm`
+      slavetext = `Chắc chắn bọn côn đồ của a|their đang bận rộn cố gắng giải cứu ông chủ của a|their ngay bây giờ`
+      slavertext = `Và a|they có lẽ vẫn vậy -- Thỉnh thoảng a|race khiến bạn vô cùng bất an`
     } else if (bg == setup.trait.bg_maid) {
-      basetext = `keeps the house warm and clean`
-      slavetext = `A natural maid, if you say so yourself`
+      basetext = `giữ cho ngôi nhà ấm áp và sạch sẽ`
+      slavetext = `Một người hầu gái bẩm sinh, nếu bạn tự nói như vậy`
     } else if (bg == setup.trait.bg_informer) {
-      basetext = `dealt in information both over and under the table`
-      slavetext = `Perhaps a|they even have a contingency plan for when a|they a|is taken as a slave`
-      slavertext = `An underhanded rogue, perfect for your company`
+      basetext = `buôn bán thông tin cả công khai và ngầm`
+      slavetext = `Có lẽ a|they thậm chí còn có một kế hoạch dự phòng khi a|they bị bắt làm nô lệ`
+      slavertext = `Một kẻ lừa đảo gian xảo, hoàn hảo cho đoàn của bạn`
     } else if (bg == setup.trait.bg_assassin) {
-      basetext = `took many lives in exchange for gold`
-      slavetext = `You have to be careful when a|they a|is near another slave`
-      slavertext = `a|They will need some time to adjust from killing fellow men to capturing them`
+      basetext = `đoạt nhiều mạng sống để đổi lấy vàng`
+      slavetext = `Bạn phải cẩn thận khi a|they ở gần một nô lệ khác`
+      slavertext = `a|They sẽ cần một thời gian để thích nghi từ việc giết người đồng loại sang bắt giữ họ`
     } else if (bg == setup.trait.bg_metalworker) {
-      basetext = `a|was locally famous as a masterful crafter of metallic origin`
-      slavertext = `a|Their calloused a|hands is well-adapted to handling the whip`
-      slavetext = `A remarkably valuable skill to have on a slave`
+      basetext = `a|was nổi tiếng tại địa phương với tư cách là một thợ thủ công bậc thầy về nguồn gốc kim loại`
+      slavertext = `a|Their đôi tay chai sạn rất thích hợp để cầm roi`
+      slavetext = `Một kỹ năng cực kỳ quý giá để có ở một nô lệ`
     } else if (bg == setup.trait.bg_artist) {
-      basetext = `made their living from practicing art`
-      slavertext = `Perhaps a|they will in time see slaving as another form of higher arts`
-      slavetext = `The slave would fit straight into the harem of nobility`
+      basetext = `kiếm sống bằng nghề nghệ thuật`
+      slavertext = `Có lẽ theo thời gian a|they sẽ coi việc buôn bán nô lệ như một hình thức nghệ thuật cao hơn khác`
+      slavetext = `Nô lệ này sẽ hoàn toàn phù hợp với hậu cung của giới quý tộc`
     }
 
-    let text = `${basetext}.`
-    if (unit.isSlaver() && slavertext) text = `${text} ${slavertext}.`
-    if (unit.isSlave() && slavetext) text = `${text} ${slavetext}.`
+    let text = `${basetext}`
+    if (unit.isSlaver() && slavertext) text = `${text} ${slavertext}`
+    if (unit.isSlave() && slavetext) text = `${text} ${slavetext}`
 
     const pretext_slaver = [
-      `Before joining your company, a|rep `,
-      `In addition, a|rep also `,
-      `But that's not all. In the past, a|rep `,
-      `Surprisingly, that's still not all of it. a|rep `,
-      `Even more, a|rep `,
+      `Trước khi gia nhập đoàn của bạn, a|rep `,
+      `Ngoài ra, a|rep cũng `,
+      `Nhưng đó không phải là tất cả. Trong quá khứ, a|rep `,
+      `Đáng ngạc nhiên, đó vẫn chưa phải là tất cả. a|rep `,
+      `Hơn nữa, a|rep `,
     ]
 
     const pretext_slave = [
-      `Before being enslaved by your company, a|rep `,
-      `In addition, a|rep also `,
-      `But that's not all. In the past, a|rep `,
-      `Surprisingly, that's still not all of it. a|rep `,
-      `Even more, a|rep `,
+      `Trước khi bị đoàn của bạn bắt làm nô lệ, a|rep `,
+      `Ngoài ra, a|rep cũng `,
+      `Nhưng đó không phải là tất cả. Trong quá khứ, a|rep `,
+      `Đáng ngạc nhiên, đó vẫn chưa phải là tất cả. a|rep `,
+      `Hơn nữa, a|rep `,
     ]
 
     let touse = null
