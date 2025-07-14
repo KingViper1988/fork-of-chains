@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-// Either: "in your building" or "once you build a building"
+// Hoặc là: "trong tòa nhà của bạn" hoặc "một khi bạn xây một tòa nhà"
 /**
  * 
  * @param {setup.BuildingTemplate | string} building_template
@@ -11,13 +11,13 @@ setup.Text.Building.inYourBuilding = function(building_template) {
   const rep = setup.selfOrObject(building_template, setup.buildingtemplate).rep()
   if (State.variables.fort.player.isHasBuilding(building_template)) {
     t = [
-      `in your ${rep}`,
-      `via your ${rep}`,
+      `trong ${rep} của bạn`,
+      `thông qua ${rep} của bạn`,
     ]
   } else {
     t = [
-      `once you build the ${rep}`,
-      `after you build the ${rep}`,
+      `một khi bạn xây dựng ${rep}`,
+      `sau khi bạn xây dựng ${rep}`,
     ]
   }
   return setup.rng.choice(t)
