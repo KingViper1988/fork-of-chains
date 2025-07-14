@@ -3,25 +3,25 @@
 
 setup.Text.genital = function(unit) {
   if (unit.isHasTrait(setup.trait.dick_huge)) {
-    return 'gigantic dick'
+    return 'dương vật khổng lồ'
   }
   if (unit.isHasTrait(setup.trait.dick_small)) {
-    return 'dick'
+    return 'dương vật'
   }
   if (unit.isHasTrait(setup.trait.dick_tiny)) {
-    return 'tiny dick'
+    return 'dương vật nhỏ'
   }
   if (unit.isHasTrait(setup.trait.breast_huge)) {
-    return 'gigantic breasts'
+    return 'cặp vú khổng lồ'
   }
   if (unit.isHasTrait(setup.trait.breast_small)) {
-    return 'breasts'
+    return 'cặp vú'
   }
   if (unit.isHasTrait(setup.trait.breast_tiny)) {
-    return 'tiny breasts'
+    return 'cặp vú nhỏ'
   }
   if (unit.isHasTrait(setup.trait.vagina_tight)) {
-    return 'vagina'
+    return 'âm đạo'
   }
-  return 'anus'
+  return 'hậu môn'
 }
