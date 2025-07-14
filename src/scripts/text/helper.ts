@@ -1,10 +1,10 @@
 // @ts-nocheck
 
 /**
- * Replaces a macro with the units variant. E.g., a|their with {a: unit} becomes <<their "unit.key">>
- * BE CAREFUL NOT TO INCLUDE LARGE THINGS LIKE IMAGE GLOB (especially on itch.io build)
+ * Thay thế một macro bằng biến thể của đơn vị. Vd: a|their với {a: unit} trở thành <<their "unit.key">>
+ * HÃY CẨN THẬN KHÔNG BAO GỒM NHỮNG THỨ LỚN NHƯ IMAGE GLOB (đặc biệt trên bản dựng itch.io)
  * @param {string | string[]} raw_text 
- * @param {Object<string, setup.Unit>} [unit_map]  (if empty, will use the variables in $g$)
+ * @param {Object<string, setup.Unit>} [unit_map]  (nếu trống, sẽ sử dụng các biến trong $g$)
  * @returns {string}
  */
 setup.Text.replaceUnitMacros = function (raw_text, unit_map) {
@@ -31,7 +31,7 @@ setup.Text.replaceUnitMacros = function (raw_text, unit_map) {
       if (unit_map) {
         unit = unit_map[unitname]
       } else if (State.variables.g) {
-        // U is a special case
+        // U là một trường hợp đặc biệt
         if (unitname == 'U') {
           unit = State.variables.unit.player
         } else {
@@ -39,16 +39,16 @@ setup.Text.replaceUnitMacros = function (raw_text, unit_map) {
         }
       }
       if (!unit || !(unit instanceof setup.Unit)) {
-        console.log(`Missing unit ${unitname}`)
+        console.log(`Thiếu đơn vị ${unitname}`)
         return `${unitname}|${unitverb}`
       }
 
       if (unitverb == 'Rep' || unitverb == 'rep') {
         if (unit.isYou()) {
           if (unitverb == 'Rep') {
-            return 'You'
+            return 'Bạn'
           } else {
-            return 'you'
+            return 'bạn'
           }
         }
         return unit.rep()
@@ -61,9 +61,9 @@ setup.Text.replaceUnitMacros = function (raw_text, unit_map) {
       if (unitverb == 'Reps' || unitverb == 'reps') {
         if (unit.isYou()) {
           if (unitverb == 'Reps') {
-            return 'Your'
+            return 'Của bạn'
           } else {
-            return 'your'
+            return 'của bạn'
           }
         }
         return `${unit.rep()}'s`
@@ -83,7 +83,7 @@ setup.Text.replaceUnitMacros = function (raw_text, unit_map) {
 
       const uverb = `u${unitverb}`
       if (Macro.has(uverb)) {
-        // it's a bodypart macro, yikes.
+        // đây là một macro bộ phận cơ thể, yikes.
         return setup.runSugarCubeCommandAndGetOutput(
           `<<${uverb} "${unit.key}">>`
         )
@@ -94,11 +94,11 @@ setup.Text.replaceUnitMacros = function (raw_text, unit_map) {
 
       const lowcase = unitverb.toLowerCase()
 
-      // otherwise convert to present tense
+      // ngược lại thì chuyển sang thì hiện tại
       if (lowcase.endsWith('y')) {
         const lp = lowcase[unitverb.length - 2]
         if (!['a', 'e', 'i', 'o', 'u'].includes(lp)) {
-          // sigh, special form time.
+          // thở dài, đến lúc dùng dạng đặc biệt.
           const trm = unitverb[unitverb.length - 1]
           let base = unitverb.substr(0, unitverb.length - 1)
           if (trm.toLowerCase() == trm) {
@@ -151,7 +151,7 @@ setup.Text.REPLACE_MACROS = {
 
 
 /**
- * Given strings, make it into a, b, and c
+ * Cho các chuỗi, tạo thành a, b, và c
  * @param {string[]} strings
  * @returns {string}
  */
@@ -161,13 +161,13 @@ setup.Text.addCommas = function (strings) {
   for (let i = 0; i < n; ++i) {
     result += strings[i]
     if (i == 0 && n == 2) {
-      result += ' and '
+      result += ' và '
     } else {
       if (n >= 3 && i < n - 1) {
         result += ', '
       }
       if (i == n - 2) {
-        result += 'and '
+        result += 'và '
       }
     }
   }
@@ -175,7 +175,7 @@ setup.Text.addCommas = function (strings) {
 }
 
 /**
- * Replaces a macro with the rep variant. E.g., a|rep with {a: furniture} becomes <<rep furniture>>.
+ * Thay thế một macro bằng biến thể rep. Vd: a|rep với {a: furniture} trở thành <<rep furniture>>.
  * @param {string | string[]} raw_text 
  * @param {Object<string, Object>} object_map
  * @returns {string}
@@ -203,7 +203,7 @@ setup.Text.replaceRepMacros = function (raw_text, object_map) {
     (match, unitname, unitverb) => {
       const obj = object_map[unitname]
       if (!obj) {
-        console.log(`Missing object ${unitname}`)
+        console.log(`Thiếu đối tượng ${unitname}`)
         return `${unitname}|${unitverb}`
       }
 
@@ -216,8 +216,8 @@ setup.Text.replaceRepMacros = function (raw_text, object_map) {
 }
 
 /**
- * Fix all occurrences of articles to the proper form in a sentence.
- * The ending is the next sentence after this.
+ * Sửa tất cả các lần xuất hiện của mạo từ về dạng đúng trong một câu.
+ * Phần kết thúc là câu tiếp theo sau câu này.
  * 
  * @param {string} text 
  * @param {string} ending 
