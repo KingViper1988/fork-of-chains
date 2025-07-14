@@ -8,12 +8,12 @@ setup.Text.Race.region = function (race) {
 }
 
 setup.Text.Race.REGIONS = {
-  city: 'City of Lucgate',
-  vale: 'Northern Vales',
-  forest: 'Western Forests',
-  deep: 'Deep',
-  desert: 'Eastern Deserts',
-  sea: 'Southern Seas',
-  mist: 'Mist',
-  heaven: 'Heavens',
+  city: 'Thành phố Lucgate',
+  vale: 'Thung lũng phía Bắc',
+  forest: 'Rừng phía Tây',
+  deep: 'Sâu',
+  desert: 'Sa mạc phía Đông',
+  sea: 'Biển phía Nam',
+  mist: 'Sương mù',
+  heaven: 'Thiên đường',
 }
